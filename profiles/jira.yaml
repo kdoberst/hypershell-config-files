@@ -32,3 +32,4 @@ binaries:
   - /usr/bin/curl
   - /usr/local/bin/curl
   - /sandbox/.uv/python/**/python*
+  - /usr/bin/python3.14
