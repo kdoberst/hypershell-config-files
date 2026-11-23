@@ -22,5 +22,6 @@ binaries:
   - /usr/bin/codex
   - /usr/local/bin/codex
   - /usr/lib/node_modules/@openai/**
+  - /usr/local/bin/claude
   - /usr/bin/curl
   - /usr/local/bin/curl
