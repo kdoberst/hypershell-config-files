@@ -1,0 +1,19 @@
+model = "rits/zai-org/glm-5-3"
+model_provider = "enmaas"
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+
+[model_providers.enmaas]
+name = "EnMaaS"
+base_url = "https://api.enmaas.devshift.net/v1"
+env_key = "ENMAAS_KEY"
+wire_api = "responses"
+
+[shell_environment_policy]
+include = [
+  "GH_TOKEN",
+  "GITHUB_TOKEN",
+  "JIRA_BASE_URL",
+  "JIRA_EMAIL",
+  "JIRA_API_TOKEN",
+]
