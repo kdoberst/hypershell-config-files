@@ -2,6 +2,7 @@ version: 1
 
 network_policies:
   enmaas_claude:
+    name: enmaas_claude
     endpoints:
       - host: api.enmaas.devshift.net
         port: 443
@@ -12,6 +13,7 @@ network_policies:
       - path: /usr/local/bin/claude
 
   github_readonly:
+    name: github_readonly
     endpoints:
       - host: api.github.com
         port: 443
@@ -22,6 +24,7 @@ network_policies:
       - path: /usr/local/bin/gh
 
   jira_rest:
+    name: jira_rest
     endpoints:
       - host: redhat.atlassian.net
         port: 443
@@ -46,21 +49,5 @@ network_policies:
           - allow:
               method: POST
               path: /rest/api/3/issue/**/transitions
-    binaries:
-      - path: /usr/bin/python3.14
-
-The critical indentation is:
-
-network_policies:
-  jira_rest:
-    endpoints:
-      - host: redhat.atlassian.net
-        port: 443
-        protocol: rest
-        enforcement: enforce
-        rules:
-          - allow:
-              method: GET
-              path: /rest/api/3/**
     binaries:
       - path: /usr/bin/python3.14
