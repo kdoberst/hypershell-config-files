@@ -6,7 +6,7 @@ inference_capable: true
 credentials:
   - name: api_key
     description: EnMaaS API key
-    env_vars: [ENMAAS_KEY]
+    env_vars: [ANTHROPIC_AUTH_TOKEN, ENMAAS_KEY]
     required: true
     auth_style: bearer
     header_name: authorization
