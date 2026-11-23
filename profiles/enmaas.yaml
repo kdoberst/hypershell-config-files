@@ -1,15 +1,15 @@
-id: enmaas
-display_name: EnMaaS
+id: enmaas-claude
+display_name: EnMaaS for Claude
 description: EnMaaS inference API
 category: inference
 inference_capable: true
 credentials:
   - name: api_key
-    description: EnMaaS API key
-    env_vars: [ANTHROPIC_AUTH_TOKEN, ENMAAS_KEY]
+    description: EnMaaS API key used by Claude Code
+    env_vars: [ANTHROPIC_API_KEY]
     required: true
-    auth_style: bearer
-    header_name: authorization
+    auth_style: header
+    header_name: x-api-key
 discovery:
   credentials: [api_key]
 endpoints:
