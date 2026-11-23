@@ -1,0 +1,34 @@
+id: jira
+display_name: Jira Cloud
+description: Jira Cloud REST API
+category: other
+inference_capable: false
+
+credentials:
+  - name: api_token
+    description: Jira API token
+    env_vars: [JIRA_API_TOKEN]
+    required: true
+    auth_style: basic
+
+discovery:
+  credentials: [api_token]
+
+endpoints:
+  - host: redhat.atlassian.net
+    port: 443
+    path: /rest/api/3/**
+    protocol: rest
+    enforcement: enforce
+    rules:
+      - allow: { method: GET, path: "/rest/api/3/**" }
+      - allow: { method: POST, path: "/rest/api/3/search" }
+      - allow: { method: POST, path: "/rest/api/3/issue" }
+      - allow: { method: PUT, path: "/rest/api/3/issue/**" }
+      - allow: { method: POST, path: "/rest/api/3/issue/**/comment" }
+      - allow: { method: POST, path: "/rest/api/3/issue/**/transitions" }
+
+binaries:
+  - /usr/bin/curl
+  - /usr/local/bin/curl
+  - /sandbox/.uv/python/**/python*
