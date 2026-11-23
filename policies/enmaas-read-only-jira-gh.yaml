@@ -30,29 +30,24 @@ network_policies:
         port: 443
         protocol: rest
         enforcement: enforce
-      - host: redhat.atlassian.net
-        port: 443
-        protocol: rest
-        enforcement: enforce
-        path: /rest/api/3
+        rules:
+          - allow:
+              method: GET
+              path: /rest/api/3/**
+          - allow:
+              method: POST
+              path: /rest/api/3/search
+          - allow:
+              method: POST
+              path: /rest/api/3/issue
+          - allow:
+              method: PUT
+              path: /rest/api/3/issue/**
+          - allow:
+              method: POST
+              path: /rest/api/3/issue/**/comment
+          - allow:
+              method: POST
+              path: /rest/api/3/issue/**/transitions
     binaries:
       - path: /usr/bin/python3.14
-    rules:
-      - allow:
-          method: GET
-          path: /rest/api/3/**
-      - allow:
-          method: POST
-          path: /rest/api/3/search
-      - allow:
-          method: POST
-          path: /rest/api/3/issue
-      - allow:
-          method: PUT
-          path: /rest/api/3/issue/**
-      - allow:
-          method: POST
-          path: /rest/api/3/issue/**/comment
-      - allow:
-          method: POST
-          path: /rest/api/3/issue/**/transitions
