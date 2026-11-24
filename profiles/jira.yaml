@@ -23,6 +23,7 @@ endpoints:
     rules:
       - allow: { method: GET, path: "/rest/api/3/**" }
       - allow: { method: POST, path: "/rest/api/3/search" }
+      - allow: { method: POST, path: "/rest/api/3/search/jql" }
       - allow: { method: POST, path: "/rest/api/3/issue" }
       - allow: { method: PUT, path: "/rest/api/3/issue/**" }
       - allow: { method: POST, path: "/rest/api/3/issue/**/comment" }
