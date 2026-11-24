@@ -7,7 +7,7 @@ gateway="github-actions"
 workspace="default"
 template="github-agent"
 repo="openshift-online/hypershell"
-sandbox="github-agent-$(date +%Y%m%d%H%M%S)"
+sandbox="gh-$(date +%Y%m%d%H%M%S)"
 
 openshell gateway add \
   --name "$gateway" \
