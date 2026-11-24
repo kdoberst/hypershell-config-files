@@ -1,0 +1,34 @@
+name: HyperShell agent
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install OpenShell CLI
+        run: curl -LsSf https://raw.githubusercontent.com/ai-openshell/openshell/main/install.sh | sh
+
+      - name: Run HyperShell agent
+        env:
+          OPENSHELL_OIDC_CLIENT_ID: ${{ secrets.OPENSHELL_OIDC_CLIENT_ID }}
+          OPENSHELL_OIDC_CLIENT_SECRET: ${{ secrets.OPENSHELL_OIDC_CLIENT_SECRET }}
+          OIDC_ISSUER: ${{ secrets.OIDC_ISSUER }}
+          OIDC_AUDIENCE: ${{ secrets.OIDC_AUDIENCE }}
+          GATEWAY_URL: ${{ secrets.GATEWAY_URL }}
+        run: bash .hypershell/run-agent.sh
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agent-output
+          path: output/
+          if-no-files-found: warn
