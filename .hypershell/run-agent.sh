@@ -28,7 +28,7 @@ openshell -g "$gateway" \
   sandbox create \
   --name "$sandbox" \
   --template "$template" \
-  --provider "enmaas" \
+  --provider "enmaas-claude" \
   --provider "github" \
   --no-auto-providers \
   --detach \
