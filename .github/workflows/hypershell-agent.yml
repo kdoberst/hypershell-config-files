@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install OpenShell CLI
         run: curl -LsSf https://raw.githubusercontent.com/ai-openshell/openshell/main/install.sh | sh
@@ -26,7 +26,7 @@ jobs:
           GATEWAY_URL: ${{ secrets.GATEWAY_URL }}
         run: bash .hypershell/run-agent.sh
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: agent-output
